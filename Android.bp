@@ -70,7 +70,6 @@ bootstrap_go_package {
     name: "soong-libaosprecovery_defaults",
     pkgPath: "bootable/recovery/libaosprecovery",
     deps: [
-        "blueprint",
         "soong",
         "soong-android",
         "soong-cc"
