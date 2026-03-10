@@ -631,7 +631,7 @@ endif
 
 TWRP_REQUIRED_MODULES += file_contexts_text
 
-ifeq ($(BOARD_CACHEIMAGE_PARTITION_SIZE),)
+ifeq ($(HAS_BOARD_CACHEIMAGE_PARTITION_SIZE),)
     TWRP_REQUIRED_MODULES += recovery-persist recovery-refresh
 endif
 
