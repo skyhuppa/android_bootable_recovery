@@ -155,3 +155,4 @@ prebuilt_etc {
     src: "etc/init.rc",
     sub_dir: "init/hw",
     recovery: true,
+}
