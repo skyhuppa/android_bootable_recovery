@@ -25,10 +25,7 @@ package {
 // See: http://go/android-license-faq
 license {
     name: "bootable_recovery_license",
-    visibility: [
-        ":__subpackages__",
-        "//bootable/deprecated-ota:__subpackages__",
-    ],
+    visibility: [":__subpackages__"],
     license_kinds: [
         "SPDX-license-identifier-Apache-2.0",
         "SPDX-license-identifier-MIT",
@@ -37,8 +34,6 @@ license {
     license_text: [
         "NOTICE",
     ],
-}
-
 soong_config_module_type {
     name: "recovery_cc_defaults",
     module_type: "cc_defaults",
