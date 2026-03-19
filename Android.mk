@@ -73,9 +73,11 @@ LOCAL_STATIC_LIBRARIES += libavb \
 LOCAL_SHARED_LIBRARIES += android.hardware.boot@1.0 \
                           android.hardware.boot@1.1 \
                           android.hardware.boot@1.2 \
+                          android.hardware.boot-V1-ndk \
                           android.hardware.health@2.0 \
                           android.hardware.health@2.1 \
                           android.hardware.health-V2-ndk \
+                          android.hardware.health-V4-ndk \  # from librecovery_utils
                           android.hardware.health-translate-ndk \
                           libbinder \
                           libbinder_ndk \
@@ -88,7 +90,7 @@ LOCAL_SHARED_LIBRARIES += android.hardware.boot@1.0 \
                           liblz4 \
                           libprotobuf-cpp-lite \
                           libutils \
-                          libzstd
+                          libzstd 
 LOCAL_C_INCLUDES += \
     system/core/fs_mgr/libfs_avb/include/ \
     system/core/fs_mgr/include_fstab/ \
