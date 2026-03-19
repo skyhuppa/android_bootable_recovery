@@ -25,7 +25,10 @@ package {
 // See: http://go/android-license-faq
 license {
     name: "bootable_recovery_license",
-    visibility: [":__subpackages__"],
+    visibility: [
+        ":__subpackages__",
+        "//bootable/deprecated-ota:__subpackages__",
+    ],
     license_kinds: [
         "SPDX-license-identifier-Apache-2.0",
         "SPDX-license-identifier-MIT",
@@ -36,18 +39,32 @@ license {
     ],
 }
 
-cc_defaults {
-    name: "recovery_defaults",
-    cflags: [
-        "-D_FILE_OFFSET_BITS=64",
-        // Must be the same as RECOVERY_API_VERSION.
-        "-DRECOVERY_API_VERSION=3",
-        "-Wall",
-        "-Werror",
+soong_config_module_type {
+    name: "recovery_cc_defaults",
+    module_type: "cc_defaults",
+    config_namespace: "recovery",
+    value_variables: ["recovery_api_version"],
+    properties: [
+        "cflags",
     ],
-    cpp_std: "c++17",
 }
 
+recovery_cc_defaults {
+    name: "recovery_defaults",
+
+    soong_config_variables: {
+        recovery_api_version: {
+            cflags: [
+                "-D_FILE_OFFSET_BITS=64",
+                // Must be the same as RECOVERY_API_VERSION.
+                "-DRECOVERY_API_VERSION=%s",
+                "-Wall",
+                "-Werror",
+            ],
+        },
+    },
+    cpp_std: "c++17",
+}
 bootstrap_go_package {
     name: "soong-libaosprecovery_defaults",
     pkgPath: "bootable/recovery/libaosprecovery",
